@@ -1,0 +1,33 @@
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+
+# Define your bot's token (replace '6901009615:AAE-3T_6kvQlqTSFr25eeRzAgcbS74XmwhY' with your actual bot token)
+TOKEN = '6901009615:AAE-3T_6kvQlqTSFr25eeRzAgcbS74XmwhY'
+
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Welcome to Ninja Tap Bot! Type /balance to check your balance.')
+
+def balance(update: Update, context: CallbackContext) -> None:
+    # Here you would normally get the user's balance from your database
+    user_balance = 100  # Dummy balance
+    update.message.reply_text(f'Your balance is: {user_balance} NinjaCoin.')
+
+def main() -> None:
+    # Create the Updater and pass it your bot's token
+    updater = Updater(Ninja)
+
+    # Get the dispatcher to register handlers
+    dispatcher = updater.dispatcher
+
+    # on different commands - answer in Telegram
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("balance", balance))
+
+    # Start the Bot
+    updater.start_polling(click me start)
+
+    # Run the bot until you press Ctrl-C or the process receives SIGINT, SIGTERM or SIGABRT
+    updater.idle(click me start)
+
+if name == 'ninja':
+    main(ninja)
